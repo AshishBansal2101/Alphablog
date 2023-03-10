@@ -9,22 +9,45 @@
     <ul class="navbar-nav mr-auto">
       
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <%= link_to 'Bloggers', users_path, class:"nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Articles
         </a>
         <div class="dropdown-menu">
+        <% if logged_in?%>
           <%= link_to 'Create New Article', new_article_path , class:"dropdown-item"  %>
+        <% end %>
           <%= link_to 'View Articles', articles_path , class:"dropdown-item"  %>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
+      <% if logged_in? %>
+        <li class="nav-item">
+        <%= link_to 'Logout', logout_path, class:"nav-link", method: :delete %>
+        </li>
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          <%= "(Admin) " if current_user.admin%><%= current_user.username%>
+        </a>
+        <div class="dropdown-menu">
+        <%= link_to 'View Your Profile', user_path(current_user) , class:"dropdown-item"  %>
+        <%= link_to 'Edit Your Profile', edit_user_path(current_user) , class:"dropdown-item"  %>
+        <%= link_to 'Delete Your Account', user_path(current_user) , class:"dropdown-item text-danger", method: :delete, data: {confirm: "Are You Sure"}  %>
       </li>
+
+      <% else %>
+        <li class="nav-item">
+        <%= link_to 'Login', login_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'Signup', signup_path, class:"nav-link" %>
+        </li>
+      <% end %>
+      
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
