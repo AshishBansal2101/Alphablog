@@ -37,6 +37,12 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @articles = @category.articles.paginate(page: params[:page], per_page: 5)
   end
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to categories_path
+  end
   
   private
 

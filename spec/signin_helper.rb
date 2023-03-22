@@ -11,8 +11,8 @@ def sign_in(admin=false)
     return user
 end
 
-def new_article(admin)
-    sign_in(admin)
+def new_article
+    sign_in
     post '/articles', params: {
         article: {
           title: "this is title",
