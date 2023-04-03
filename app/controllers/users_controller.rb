@@ -9,11 +9,11 @@ class UsersController < ApplicationController
     end
 
     def show
-        @articles=@user.articles.paginate(page: params[:page], per_page: 3)
+        @articles=@user.articles.paginate(page: params[:page], per_page: 4)
     end
 
     def index
-        @users=User.paginate(page: params[:page], per_page: 3)
+        @users=User.paginate(page: params[:page], per_page: 4)
     end
         
     def edit
@@ -37,6 +37,19 @@ class UsersController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def follow
+        @user=User.find(params[:format])
+        current_user.followings<<@user
+        redirect_to users_path
+    end
+
+    def unfollow
+        @user=User.find(params[:format])
+        @unfollow=Follow.where(follower_id: current_user.id ,followed_user_id: @user.id).first
+        @unfollow.destroy
+        redirect_to users_path
     end
 
     def destroy

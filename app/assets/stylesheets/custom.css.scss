@@ -1,6 +1,11 @@
 @import "bootstrap/dist/css/bootstrap";
 .navbar {
-  background-color: #0c0c0c !important;
+  // background-color: #0c0c0c !important;
+  // background-color: #838fc6 !important;
+  background: #e2c4ba;
+    background: -webkit-linear-gradient(to right, #c4a499, #616da1);
+    background: linear-gradient(to right, #be9a8e, #59679e);
+  // background-image: linear-gradient(25deg,#d64c7f,#ee4758 50%);
 }
 
 .nav-link {
@@ -36,8 +41,14 @@ body {
 #page-content {
   flex: 1 0 auto;
   background-color: lightgrey;
-}
+    background: #e8cbc0;
+    background: -webkit-linear-gradient(to right, #d3b5aa, #636fa4);
+    background: linear-gradient(to right, #d5afa2, #636fa4);
 
+  // background-image: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+  // background-image: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
+
+}
 #sticky-footer {
   flex-shrink: none;
 }
@@ -76,3 +87,37 @@ body {
     margin-right: 1em; }
   .flickr_pagination .next_page {
     margin-left: 1em; }
+
+  .ucard{
+    display: flex !important;
+    flex-direction: row !important;
+    // height: 700px !important;
+  }
+
+  .apple_pagination {
+    // background: #f1f1f1;
+    // border: 1px solid #e5e5e5;
+    text-align: center;
+    padding: 1em;
+    cursor: default; }
+    .apple_pagination a, .apple_pagination span {
+      padding: 0.2em 0.3em; }
+    .apple_pagination .disabled {
+      color: #aaaaaa; }
+    .apple_pagination .current {
+      font-style: normal;
+      font-weight: bold;
+      background-color: #bebebe;
+      display: inline-block;
+      width: 1.4em;
+      height: 1.4em;
+      line-height: 1.5;
+      -moz-border-radius: 1em;
+      -webkit-border-radius: 1em;
+      border-radius: 1em;
+      text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+    .apple_pagination a {
+      text-decoration: none;
+      color: black; }
+      .apple_pagination a:hover, .apple_pagination a:focus {
+        text-decoration: underline; }
