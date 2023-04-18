@@ -7,7 +7,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      
+      <% if logged_in? %>
       <li class="nav-item">
         <%= link_to 'Bloggers', users_path, class:"nav-link" %>
       </li>
@@ -15,15 +15,15 @@
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Articles
         </a>
+        
         <div class="dropdown-menu">
         <% if logged_in?%>
           <%= link_to 'Create New Article', new_article_path , class:"dropdown-item"  %>
         <% end %>
           <%= link_to 'View Articles', articles_path , class:"dropdown-item"  %>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+          
       </li>
+
 
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,6 +36,7 @@
           <%= link_to "View categories", categories_path, class: "dropdown-item" %>
         </div>
       </li>
+      <%end%>
       
       <% if logged_in? %>
         <li class="nav-item">
@@ -62,9 +63,9 @@
       <% end %>
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <%# <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> %>
   </div>
 </nav>

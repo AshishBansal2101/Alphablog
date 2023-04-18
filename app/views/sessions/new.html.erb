@@ -5,7 +5,7 @@
     
     <div class="row justify-content-center">
     <div class="col-10">
-    <%= form_with(scope: :session,url: login_path , class:"shadow p-3 mb-3 bg-info rounded", local:true ) do |f| %>
+    <%= form_with(scope: :session,url: login_path , class:"shadow p-3 mb-3 bg-info rounded lgn", local:true ) do |f| %>
         <div class="form-group row">
         <%= f.label:email, class: 'col-2 col-form-label text-light'%>
         <div class="col-10">
@@ -25,7 +25,7 @@
         </div>
         </div>
         <div class="mb-3">
-        <%= link_to '[ Cancel and Return To Article List ]', articles_path ,class: "text-info" %>
+        <%= link_to '[ Cancel and Return To Signup ]', signup_path ,class: "text-white" %>
         </div>
     <%end%>
     </div>

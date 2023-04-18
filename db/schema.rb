@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2023_03_29_062302) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
+    t.text "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
@@ -27,9 +30,9 @@ ActiveRecord::Schema.define(version: 2023_03_29_062302) do
   end
 
   create_table "admin_users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.text "email", default: "", null: false
+    t.text "encrypted_password", default: "", null: false
+    t.text "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 2023_03_29_062302) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.string "title"
+    t.text "title"
     t.text "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,7 +55,7 @@ ActiveRecord::Schema.define(version: 2023_03_29_062302) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -65,7 +68,7 @@ ActiveRecord::Schema.define(version: 2023_03_29_062302) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.text "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"

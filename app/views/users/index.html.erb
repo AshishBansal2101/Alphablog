@@ -1,14 +1,12 @@
 <h1 class="text-center mt-4">Alpha-Bloggers</h1>
 
-<div class="apple_pagination mt-3">
-    <% if @users.any?%>
-    <%= will_paginate @users, :container => false %>
-    <%end%>
-</div>
+<%# <div class="apple_pagination mt-3">
+   
+</div> %>
 
 
 <div class="container">
-    <div class="row text-center">
+    <div class="text-center">
       <%# <div class="row text-center mx-auto"> %>
         <%@users.each do |user|%>
           <div class="col-xl-5 col-sm-7 mb-5 mt-5 mx-auto shadow-lg p-3 mb-5  rounded">
@@ -47,8 +45,3 @@
 
 
 
-<div class="apple_pagination mb-4">
-    <% if @users.any?%>
-    <%= will_paginate @users, :container => false %>
-    <%end%>
-</div>

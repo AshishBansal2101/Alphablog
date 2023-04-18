@@ -138,7 +138,7 @@ RSpec.describe "Articles", type: :request do
 
         it ": article list--not signin" do
           get articles_path
-          expect(response).to be_successful
+          expect(response).not_to be_successful
         end
         
       end

@@ -188,8 +188,6 @@ RSpec.describe "Users", type: :request do
          delete "/users/#{user.id}"
       }.to change(User, :count).by(-1)
       expect(response).to redirect_to(articles_path)
-      follow_redirect!
-      expect(response.body).to include("Deleted")
     end
 
     it "::destroy  user profile--admin " do

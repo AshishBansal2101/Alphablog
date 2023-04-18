@@ -1,30 +1,34 @@
-<div class="container">
+<div class="container bg1 row text-center">
 <%@articles.each do |article|%>
-<div class="row justify-content-md-center">
-  <div class="col-8 mt-5">
-    <div class="card text-center shadow mb-5 bg-white rounded">
-      <div class="card-header font-italic">
-          <% if article.user %>
-          by <%= link_to article.user.username, user_path(article.user) %>
-          <% end %>
-         <% if article.categories.any? %>
-              <div class="mt-2"><%= render article.categories %></div> 
-         <% end %>
-          </div>
-            <div class="card-body">
-              <h5 class="card-title"><%= link_to article.title , article_path(article) , class: 'text-success' %></h5>
-              <p class="card-text"><%= truncate(article.description, length: 100) %></p>
-              <%= link_to 'View', article_path(article) , class: 'btn btn-success'%>
-              <% if logged_in? &&(article.user==current_user || current_user.admin?)%>
-              <%= link_to 'Edit', edit_article_path(article) , class: 'btn btn-info'%>
-              <%= link_to 'Delete', article_path(article) ,method: :delete , data: {confirm: "Are You Sure?"} , class: 'btn btn-danger'%>
-              <% end %>
-            </div>
-          <div class="card-footer text-muted">
-          <small>Created <%= time_ago_in_words(article.created_at) %> ago, edited <%= time_ago_in_words(article.updated_at) %> ago</small>
-      </div>
+ <div class="blog-card spring-fever">
+  <div class="title-content">
+    <h3><%= link_to article.title , article_path(article) %></h3>
+    <% if article.user %>
+    <div class="intro"> 
+      <%= link_to article.user.username, user_path(article.user) %>
     </div>
+    <% end%>
   </div>
+  <div class="card-info">
+    <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+    <%= link_to 'Read Article', article_path(article) , class: 'btn btn-light'%>
+
+              
+    <%# <a href="#">Read Article<span class="licon icon-arr icon-black"></span></a> %>
+  </div>
+  <div class="utility-info">
+    <ul class="utility-list">
+      <%# <li><span class="licon icon-like"></span><a href="#">2</a></li>
+      <li><span class="licon icon-com"></span><a href="#">12</a></li> %>
+      <li><span class="licon icon-dat"></span>Created <%= time_ago_in_words(article.created_at) %> ago, edited <%= time_ago_in_words(article.updated_at) %> ago</li>
+      <li><span class="licon icon-tag"></span>
+          <% if article.categories.any? %>
+              <span class="mt-2"><%= render article.categories %></span> 
+          <% end %></li>
+    </ul>
+  </div>
+  <div class="gradient-overlay"></div>
+  <div class="color-overlay"></div>
 </div>
 <%end%>
 

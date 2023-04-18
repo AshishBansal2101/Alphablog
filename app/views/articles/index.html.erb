@@ -1,6 +1,6 @@
 <h1 class="text-center mt-4">Listing All Articles</h1>
 
-<div class="flickr_pagination mt-3">
+<div class="apple_pagination mt-3">
     <% if @articles.any?%>
     <%= will_paginate @articles, :container => false %>
     <%end%>
@@ -8,7 +8,7 @@
 
 <%= render 'article'%>
 
-<div class="flickr_pagination mb-4">
+<div class="apple_pagination mb-4">
     <% if @articles.any?%>
     <%= will_paginate @articles, :container => false %>
     <%end%>
